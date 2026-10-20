@@ -1,0 +1,293 @@
+{
+  "company": {
+    "legalName": "Athena Superpack Pvt. Ltd.",
+    "productBrand": "Zapac",
+    "tagline": "Complete packaging solutions for every food business.",
+    "cataloguePdf": "https://5.imimg.com/data5/SELLER/Doc/2026/9/640212680/NN/TB/LV/2782711/zapac-catalogue-brown-2-2-1-1-1-2-1-4.pdf"
+  },
+  "contact": {
+    "phone": "+91 72089 47187",
+    "phoneHref": "tel:+917208947187",
+    "email": "marketing@athenasuperpack.com",
+    "emailHref": "mailto:marketing@athenasuperpack.com",
+    "productSite": "https://zapac.in",
+    "whatsappHref": "https://wa.me/917208947187?text=Hello%20Athena%20Superpack%2C%20I%20would%20like%20to%20enquire%20about%20packaging%20products."
+  },
+  "mission": "Our mission is to make India more sustainable by providing eco-friendly, safe and innovative packaging solutions. We aim to deliver quality, convenience and affordability while reducing environmental impact and supporting the growth of our partners in the food and hospitality industry.",
+  "vision": "At Athena Superpack Pvt Ltd, our vision is to lead India toward a sustainable future with innovative, eco-friendly food packaging solutions that make everyday consumption greener and smarter.",
+  "aboutIntro": "Athena Superpack Pvt Ltd is one of India's leading disposable food-packaging companies. Under our brand Zapac, we serve food businesses, resellers, corporate customers, hotels, restaurants, cloud kitchens, and other HORECA clients with reliable containers, trays, glasses, wrapping, and hygiene products designed for modern operations.",
+  "presenceHeadline": "Presence spanning the length and breadth of India",
+  "specialisations": [
+    "Complete range of plastic and eco-friendly food packaging",
+    "Containers, plates, bowls, meal trays, glasses, and tissues",
+    "Customised and premium HORECA packaging",
+    "Strong reseller network across Maharashtra",
+    "Trusted supply for corporate, hotels, restaurants, and cloud kitchens",
+    "Consistent quality, pan-India delivery, and hygienic solutions"
+  ],
+  "proofPoints": [
+    { "value": "500+", "label": "Reseller clients", "tone": "figure" },
+    { "value": "3", "label": "Warehouses in Maharashtra", "tone": "figure" },
+    { "value": "Pan-India", "label": "Corporate & HORECA supply", "tone": "phrase" },
+    { "value": "Broad range", "label": "Plastic & eco-friendly", "tone": "phrase" }
+  ],
+  "heroProofPoints": [
+    { "label": ["Pan India", "Delivery"], "icon": "images/proof-icons/pan-india-delivery.png" },
+    { "label": "3 warehouses across Maharashtra", "icon": "images/proof-icons/warehouse.png" },
+    { "label": ["In-House", "Manufacturing"], "icon": "images/proof-icons/in-house.png" },
+    { "label": "Experienced and Dynamic Team", "icon": "images/proof-icons/team.png" },
+    { "label": ["Customized", "Packaging"], "icon": "images/proof-icons/customized.png" },
+    { "label": "Available for you personally", "icon": "images/proof-icons/available.png" }
+  ],
+  "whyChooseUsPoints": [
+    { "label": "Pan India Delivery", "icon": "images/proof-icons/pan-india-delivery.png" },
+    { "label": "3 warehouses across Maharashtra for faster delivery", "icon": "images/proof-icons/warehouse.png" },
+    { "label": "In-House Manufacturing", "icon": "images/proof-icons/in-house.png" },
+    { "label": "Experienced and Dynamic Team", "icon": "images/proof-icons/team.png" },
+    { "label": "Customized Packaging", "icon": "images/proof-icons/customized.png" },
+    { "label": "Available for you personally", "icon": "images/proof-icons/available.png" }
+  ],
+  "warehouses": [
+    {
+      "label": "Warehouse 1 — Malad (E)",
+      "address": "Ramji Patel Compound, Behind Aman Marble, Near Malika Restaurant, Pathanwadi, Malad (E), Mumbai 400097"
+    },
+    {
+      "label": "Warehouse 2 — Palghar",
+      "address": "V/18, Qureshi Compound, Parab Wadi, Chinchoti, Naigaon East, Palghar 401208"
+    },
+    {
+      "label": "Warehouse 3 — Sewri",
+      "address": "Godown No. 4A, Besides Advance Paint, Fosbery Road, Indira Nagar, Sewri East, Mumbai 400015"
+    }
+  ],
+  "navLinks": [
+    { "href": "index.html", "label": "Home" },
+    { "href": "about/index.html", "label": "About Us" },
+    { "href": "products/index.html", "label": "Products" },
+    { "href": "sustainability/index.html", "label": "Eco-Friendly Solutions" },
+    { "href": "contact/index.html", "label": "Contact" }
+  ],
+  "utilityNavLinks": [
+    { "href": "https://5.imimg.com/data5/SELLER/Doc/2026/9/640212680/NN/TB/LV/2782711/zapac-catalogue-brown-2-2-1-1-1-2-1-4.pdf", "label": "Catalog", "external": true },
+    { "href": "about/index.html", "label": "About us" },
+    { "href": "sustainability/index.html", "label": "Sustainability" },
+    { "href": "contact/index.html", "label": "Custom packaging" },
+    { "href": "contact/index.html", "label": "Contact us" }
+  ],
+  "ecoCategorySlugs": [
+    "eco-friendly-takeaway-containers",
+    "serving-bowls-plates-trays",
+    "cutlery-straws-stirrers",
+    "delivery-bags"
+  ],
+  "sampleProducts": [
+    { "code": "ASPL-7", "name": "Round plastic container", "size": "100ml Round", "packQty": "500 pcs", "categorySlug": "plastic-takeaway-containers" },
+    { "code": "ASPL-11", "name": "Round plastic container", "size": "500ml Round", "packQty": "500 pcs", "categorySlug": "plastic-takeaway-containers" },
+    { "code": "ASPL-15", "name": "Round plastic container", "size": "750ml Round (Flat)", "packQty": "500 pcs", "categorySlug": "plastic-takeaway-containers" },
+    { "code": "ASPL-22", "name": "Rectangle plastic container", "size": "500ml Rectangle", "packQty": "500 pcs", "categorySlug": "plastic-takeaway-containers" },
+    { "code": "ASPL-29", "name": "Premium plastic container", "size": "C 500/2 Rectangle", "packQty": "500 pcs", "categorySlug": "plastic-takeaway-containers" },
+    { "code": "5CP", "name": "Plastic meal tray with lid", "size": "5 Compartment", "packQty": "800 pcs", "categorySlug": "meal-trays" },
+    { "code": "ASPL-1", "name": "Dip plastic container", "size": "25ml Round (Hinged)", "packQty": "5000 pcs", "categorySlug": "plastic-takeaway-containers" }
+  ],
+  "categoryNav": [
+    {
+      "type": "group",
+      "label": "Takeaway Containers",
+      "sections": [
+        { "slug": "plastic-takeaway-containers", "heading": "Plastic Takeaway Container" },
+        { "slug": "eco-friendly-takeaway-containers", "heading": "Eco-Friendly Takeout Containers" },
+        { "slug": "meal-trays", "heading": "Takeaway MealTray" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "Beverage Product",
+      "children": [
+        { "slug": "beverage-products", "segment": "paper-beverage-product", "label": "Paper Beverage Product" },
+        { "slug": "beverage-products", "segment": "ripple-beverage-product", "label": "Ripple Beverage Product" },
+        { "slug": "beverage-products", "segment": "plastic-lid", "label": "Plastic Lid" },
+        { "slug": "beverage-products", "segment": "bagasse-lid", "label": "Bagasse Lid" },
+        { "slug": "beverage-products", "segment": "paper-lid", "label": "Paper Lid" },
+        { "slug": "beverage-products", "segment": "plastic-beverage-product", "label": "Plastic Beverage Product" },
+        { "slug": "beverage-products", "segment": "pet-bottles", "label": "Pet Bottles" },
+        { "slug": "beverage-products", "segment": "glass-bottles", "label": "Glass Bottles" }
+      ]
+    },
+    { "type": "link", "label": "Cutlery, Straw & Stirrer", "slug": "cutlery-straws-stirrers" },
+    {
+      "type": "group",
+      "label": "Wrapping & Delivery",
+      "children": [
+        { "slug": "food-wrapping", "label": "Food Wrapping" },
+        { "slug": "delivery-bags", "label": "Delivery Bags" }
+      ]
+    },
+    {
+      "type": "group",
+      "label": "Serving Products",
+      "children": [{ "slug": "serving-bowls-plates-trays", "label": "Bowl, Plates & Trays" }]
+    },
+    {
+      "type": "group",
+      "label": "Hygiene & More",
+      "children": [
+        { "slug": "safety-hygiene", "label": "Safety & Hygiene" },
+        { "slug": "pet-products", "label": "Pet Product" },
+        { "slug": "other-products", "label": "Others" }
+      ]
+    }
+  ],
+  "productCategories": [
+    {
+      "slug": "plastic-takeaway-containers",
+      "title": "Plastic Takeaway Containers",
+      "shortTitle": "Plastic takeaway",
+      "description": "Round, rectangular, and premium meal boxes in food-grade plastic — hinged lids, separate lids, and dome options for delivery and catering.",
+      "image": "images/products/hero-round-container.jpg",
+      "imageAlt": "750ml round plastic container with lid from the Zapac range",
+      "cataloguePages": "1–5",
+      "layout": "feature",
+      "subLines": [
+        { "id": "dip-plastic-container", "label": "Dip Plastic Container" },
+        { "id": "round-plastic-container", "label": "Round Plastic Container" },
+        { "id": "rectangle-plastic-container", "label": "Rectangle Plastic Container" },
+        { "id": "premium-plastic-containers", "label": "Premium Plastic Containers" },
+        { "id": "buckets-ro-re-series", "label": "BucketsRo / Re Series" },
+        { "id": "tamper-proof-round", "label": "Tamper Proof - Round" },
+        { "id": "tamper-proof-rectangle", "label": "Tamper Proof - Rectangle" },
+        { "id": "plastic-bowl-container", "label": "Plastic Bowl Container" },
+        { "id": "plastic-sweet-box", "label": "Plastic Sweet Box" }
+      ]
+    },
+    {
+      "slug": "eco-friendly-takeaway-containers",
+      "title": "Eco-Friendly Takeaway Containers",
+      "shortTitle": "Eco takeaway",
+      "description": "Bagasse, kraft, and compostable-format containers for brands moving toward lower-impact takeaway packaging.",
+      "image": "images/products/meal-tray.png",
+      "imageAlt": "Compartment meal packaging from the Zapac catalogue",
+      "cataloguePages": "6–10",
+      "layout": "index",
+      "subLines": [
+        { "id": "cornstarch-round-product", "label": "Cornstarch Round Product" },
+        { "id": "cornstarch-rectangle-product", "label": "Cornstarch Rectangle Product" },
+        { "id": "cornstarch-clamshell-product", "label": "Cornstarch Clamshell Product" },
+        { "id": "bagasse-clamshell-brown-white", "label": "Bagasse Clamshell Brown / White" },
+        { "id": "anti-leak-bagasse-round-container", "label": "Anti-Leak Bagasse Round Container" },
+        { "id": "anti-leak-bagasse-rectangle-container", "label": "Anti-Leak Bagasse Rectangle Container" },
+        { "id": "paper-food-box-white-kraft", "label": "Paper Food Box - White & Kraft" },
+        { "id": "paper-salad-bowls-with-lid", "label": "Paper Salad Bowls with Lid" },
+        { "id": "paper-tubs-with-lid-white-brown", "label": "Paper Tubs with Lid - White & Brown" },
+        { "id": "corrugated-pizza-box", "label": "Corrugated Pizza Box" }
+      ]
+    },
+    {
+      "slug": "meal-trays",
+      "title": "Meal Trays",
+      "shortTitle": "Meal trays",
+      "description": "Multi-compartment trays with matching lids for thalis, combo meals, and institutional catering — available in several cavity counts.",
+      "image": "images/products/meal-tray.png",
+      "imageAlt": "Five-compartment plastic meal tray with lid",
+      "cataloguePages": "11–13",
+      "layout": "strip",
+      "subLines": [
+        { "id": "plastic-meal-trays", "label": "Plastic Meal Trays" },
+        { "id": "premium-meal-trays", "label": "Premium Meal Trays" },
+        { "id": "sealable-meal-tray", "label": "Sealable Meal Tray" },
+        { "id": "cornstarch-meal-tray", "label": "Cornstarch Meal Tray" },
+        { "id": "bagasse-meal-tray", "label": "Bagasse Meal Tray" }
+      ]
+    },
+    {
+      "slug": "beverage-products",
+      "title": "Beverage Products",
+      "shortTitle": "Beverages",
+      "description": "Paper cups, ripple glasses, and related beverage service disposables for cafés, QSR, and HORECA counters.",
+      "image": "images/products/hero-round-container.jpg",
+      "imageAlt": "Plain paper cup for beverages",
+      "cataloguePages": "14–17",
+      "layout": "index",
+      "subLines": [
+        { "id": "paper-beverage-product", "label": "Paper Beverage Product" },
+        { "id": "ripple-beverage-product", "label": "Ripple Beverage Product" },
+        { "id": "plastic-lid", "label": "Plastic Lid" },
+        { "id": "bagasse-lid", "label": "Bagasse Lid" },
+        { "id": "paper-lid", "label": "Paper Lid" },
+        { "id": "plastic-beverage-product", "label": "Plastic Beverage Product" },
+        { "id": "pet-bottles", "label": "Pet Bottles" },
+        { "id": "glass-bottles", "label": "Glass Bottles" }
+      ]
+    },
+    {
+      "slug": "food-wrapping",
+      "title": "Food Wrapping",
+      "shortTitle": "Wrapping",
+      "description": "Foil, paper, and film products for wrapping, lining, and protecting food during prep, storage, and delivery.",
+      "image": "images/products/hero-round-container.jpg",
+      "imageAlt": "Food wrapping products from the Zapac catalogue",
+      "cataloguePages": "18–19",
+      "layout": "strip"
+    },
+    {
+      "slug": "serving-bowls-plates-trays",
+      "title": "Serving Bowls, Plates & Trays",
+      "shortTitle": "Bowls & plates",
+      "description": "Plates, bowls, and serving trays for dine-in, events, and takeaway — plastic and eco formats.",
+      "image": "images/products/meal-tray.png",
+      "imageAlt": "Square biodegradable plate",
+      "cataloguePages": "20–22",
+      "layout": "feature"
+    },
+    {
+      "slug": "cutlery-straws-stirrers",
+      "title": "Cutlery, Straws & Stirrers",
+      "shortTitle": "Cutlery & straws",
+      "description": "Forks, spoons, knives, straws, and stirrers aligned with takeaway and dine-in service needs.",
+      "image": "images/products/meal-tray.png",
+      "imageAlt": "Cutlery and service disposables from the Zapac catalogue",
+      "cataloguePages": "23–25",
+      "layout": "index"
+    },
+    {
+      "slug": "delivery-bags",
+      "title": "Delivery Bags",
+      "shortTitle": "Delivery bags",
+      "description": "Carry and delivery bags suited for food orders, including kraft and reinforced options.",
+      "image": "images/products/hero-round-container.jpg",
+      "imageAlt": "Delivery bags from the Zapac catalogue",
+      "cataloguePages": "26–27",
+      "layout": "strip"
+    },
+    {
+      "slug": "pet-products",
+      "title": "PET Products",
+      "shortTitle": "PET",
+      "description": "Clear PET hinged and format containers for salads, desserts, and chilled display.",
+      "image": "images/products/hero-round-container.jpg",
+      "imageAlt": "Rectangular PET hinged container",
+      "cataloguePages": "28–31",
+      "layout": "feature"
+    },
+    {
+      "slug": "safety-hygiene",
+      "title": "Safety & Hygiene",
+      "shortTitle": "Hygiene",
+      "description": "Gloves, caps, and hygiene disposables to support safe food handling in kitchens and service areas.",
+      "image": "images/products/meal-tray.png",
+      "imageAlt": "Hygiene and service products from the catalogue",
+      "cataloguePages": "32–35",
+      "layout": "index"
+    },
+    {
+      "slug": "other-products",
+      "title": "Other Products",
+      "shortTitle": "Other",
+      "description": "Additional disposables and packaging accessories — refer to the full Zapac catalogue for codes and pack sizes.",
+      "image": "images/products/hero-round-container.jpg",
+      "imageAlt": "Corrugated pizza box",
+      "cataloguePages": "36",
+      "layout": "strip"
+    }
+  ]
+}
