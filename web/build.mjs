@@ -22,6 +22,10 @@ function p(depth, path) {
   return prefix(depth) + path;
 }
 
+function assetSrc(depth, path) {
+  return encodeURI(p(depth, path));
+}
+
 function categoryHref(depth, slug, segment) {
   const base = p(depth, `products/${slug}/index.html`);
   return segment ? `${base}#${segment}` : base;
@@ -33,11 +37,11 @@ function navHref(depth, key) {
     case "home":
       return `${home}#top`;
     case "about":
-      return depth === 0 ? "#about" : p(depth, "about/index.html");
+      return p(depth, "about/index.html");
     case "products":
-      return depth === 0 ? "#products" : p(depth, "products/index.html");
+      return p(depth, "products/index.html");
     case "eco":
-      return depth === 0 ? "#eco" : p(depth, "sustainability/index.html");
+      return p(depth, "sustainability/index.html");
     case "contact":
       return depth === 0 ? "#enquiry" : p(depth, "contact/index.html");
     default:
@@ -79,7 +83,11 @@ function renderCategoryBar(depth) {
         return `<button type="button" data-q="${esc(title)}" data-href="${esc(href)}">${esc(entry.label)}</button>`;
       }
       let panel = "";
+      let panelClass = "panel";
       if (entry.sections) {
+        if (entry.sections.length > 1) {
+          panelClass = `panel panel--cols panel--cols-${entry.sections.length}`;
+        }
         panel = entry.sections
           .map((section) => {
             const lines = subLinesForSlug(section.slug);
@@ -94,7 +102,7 @@ function renderCategoryBar(depth) {
                 }),
               )
               .join("");
-            return head + buttons;
+            return `<div class="panel-col">${head}${buttons}</div>`;
           })
           .join("");
       } else {
@@ -109,7 +117,7 @@ function renderCategoryBar(depth) {
           )
           .join("");
       }
-      return `<div class="dd"><button type="button" aria-haspopup="true">${esc(entry.label)}</button><div class="panel">${panel}</div></div>`;
+      return `<div class="dd"><button type="button" aria-haspopup="true">${esc(entry.label)}</button><div class="${panelClass}">${panel}</div></div>`;
     })
     .join("");
 }
@@ -119,8 +127,9 @@ function markTop(depth) {
   return `<a class="mark mark--img" href="${esc(p(depth, "index.html"))}#top" aria-label="${esc(data.company.legalName)} — Home"><img class="mark__logo" src="${esc(src)}" alt="" width="388" height="60" decoding="async" /></a>`;
 }
 
-function markFooter(depth) {
-  return `<a class="mark" href="${esc(p(depth, "index.html"))}#top"><b>ATHENA</b><i style="color:rgb(255 255 255/.7)">Superpack<br>Pvt. Ltd.</i></a>`;
+function markFooterLogo(depth) {
+  const src = p(depth, "assets/logo.png");
+  return `<a class="mark mark--img mark--footer" href="${esc(p(depth, "index.html"))}#top" aria-label="${esc(data.company.legalName)} — Home"><img class="mark__logo" src="${esc(src)}" alt="" width="388" height="60" decoding="async" /></a>`;
 }
 
 function athenaHeader(depth) {
@@ -131,14 +140,14 @@ function athenaHeader(depth) {
       return `<a href="${esc(href)}"${ext}>${esc(link.label)}</a>`;
     })
     .join("");
-  const homeProducts = p(depth, "index.html");
+  const searchAction = p(depth, "products/index.html");
   return `<header id="site-header">
 <div class="header-brand"><div class="header-shell header-brand__inner">
 ${markTop(depth)}
 <button type="button" class="menu" data-menu-toggle aria-expanded="false">Menu</button>
 <div class="header-brand__end">
 <nav class="header-brand-nav" aria-label="Site">${util}</nav>
-<form class="hsearch" id="header-search" role="search" action="${esc(homeProducts)}#products" method="get">
+<form class="hsearch" id="header-search" role="search" action="${esc(searchAction)}" method="get">
 <label class="sr" for="header-q">Search products</label>
 <div class="sb"><input id="header-q" name="q" type="search" placeholder="Search products" autocomplete="off" />
 <button type="submit" aria-label="Submit search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button></div>
@@ -150,25 +159,37 @@ ${markTop(depth)}
 }
 
 function athenaFooter(depth) {
-  const nav = [
+  const quickLinks = [
+    ["home", "Home"],
     ["about", "About us"],
-    ["products", "Products"],
+    ["products", "Product categories"],
     ["eco", "Eco-friendly"],
-    ["contact", "Contact"],
+    ["contact", "Contact us"],
   ]
     .map(
       ([key, label]) =>
         `<li><a href="${esc(navHref(depth, key))}">${esc(label)}</a></li>`,
     )
     .join("");
-  return `<footer><div class="wrap">
-<div class="cols">
-<div>${markFooter(depth)}<p>${esc(data.company.legalName)} supplies food packaging under the ${esc(data.company.productBrand)} brand for resellers, corporate kitchens and HORECA operations across India.</p></div>
-<div><h3>Navigate</h3><ul>${nav}</ul></div>
-<div><h3>Contact</h3><ul><li><a href="${esc(data.contact.phoneHref)}">${esc(data.contact.phone)}</a></li><li><a href="${esc(data.contact.emailHref)}">${esc(data.contact.email)}</a></li><li><a href="${esc(data.contact.productSite)}" target="_blank" rel="noopener noreferrer">zapac.in</a></li></ul></div>
+  const wh = data.warehouses[0];
+  const address = `${wh.address} We also serve from warehouses in Palghar and Sewri, Maharashtra.`;
+  const credit = data.company.footerCredit;
+  const creditLabel = credit.href
+    ? `<a href="${esc(credit.href)}" target="_blank" rel="noopener noreferrer">${esc(credit.label)}</a>`
+    : `<span class="site-footer__credit-name">${esc(credit.label)}</span>`;
+  return `<footer class="site-footer"><div class="wrap site-footer__grid">
+<div class="site-footer__brand">${markFooterLogo(depth)}
+<p class="site-footer__tagline">${esc(data.company.footerTagline)}</p>
+<p class="site-footer__blurb">${esc(data.company.footerBlurb)}</p></div>
+<div class="site-footer__links"><h3>Quick links</h3><ul>${quickLinks}</ul></div>
+<div class="site-footer__contact"><h3>Contact</h3>
+<p class="site-footer__phone"><a href="${esc(data.contact.phoneHref)}">${esc(data.contact.phone)}</a></p>
+<p class="site-footer__address">${esc(address)}</p>
+<p class="site-footer__email"><a href="${esc(data.contact.emailHref)}">${esc(data.contact.email)}</a></p>
+<a class="site-footer__web" href="${esc(data.contact.productSite)}" target="_blank" rel="noopener noreferrer">zapac.in</a></div>
 </div>
-<div class="legal"><span>© 2026 ${esc(data.company.legalName)}</span><span>Specifications and availability refer to the published ${esc(data.company.productBrand)} catalogue.</span></div>
-</div></footer>`;
+<div class="wrap site-footer__legal"><p class="site-footer__credit">${esc(credit.prefix)}${creditLabel}</p></div>
+</footer>`;
 }
 
 function pageShell({ depth, title, description, body, bodyClass = "" }) {
@@ -201,6 +222,53 @@ function writePage(relativePath, html) {
   mkdirSync(dirname(full), { recursive: true });
   writeFileSync(full, html, "utf8");
   console.log("wrote", relativePath);
+}
+
+function enquiryFormBlockHome(formId = "home-enquiry") {
+  const he = data.homeEnquiry;
+  const businessOptions = he.businessTypes
+    .map((t) => `<option value="${esc(t)}">${esc(t)}</option>`)
+    .join("");
+  const wh = data.warehouses[0];
+  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(wh.address)}`;
+  const addressHtml = data.warehouses
+    .map(
+      (w) =>
+        `<p class="home-enquiry__address-block"><strong>${esc(w.label)}</strong><span>${esc(w.address)}</span></p>`,
+    )
+    .join("");
+  return `<section id="enquiry" class="home-enquiry"><div class="wrap home-enquiry__grid">
+<div class="home-enquiry__info rv">
+<p class="home-enquiry__ey">${esc(he.eyebrow)}</p>
+<h2 class="home-enquiry__title">${esc(he.title)}</h2>
+<p class="home-enquiry__lead">${esc(he.lead)}</p>
+<div class="home-enquiry__card">
+<p class="home-enquiry__card-ey">Call us</p>
+<p class="home-enquiry__phone"><a href="${esc(data.contact.phoneHref)}">${esc(data.contact.phone)}</a></p>
+</div>
+<div class="home-enquiry__card">
+<p class="home-enquiry__card-ey">Our address</p>
+<div class="home-enquiry__addresses">${addressHtml}</div>
+</div>
+<div class="home-enquiry__actions">
+<a class="btn red home-enquiry__wa" href="${esc(data.contact.whatsappHref)}" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+<a class="btn ghost home-enquiry__directions" href="${esc(mapsHref)}" target="_blank" rel="noopener noreferrer">Get directions</a>
+</div>
+</div>
+<div class="home-enquiry__form-card rv">
+<h3 class="home-enquiry__form-title">${esc(he.formTitle)}</h3>
+<p class="home-enquiry__form-lead">${esc(he.formLead)}</p>
+<form id="${esc(formId)}" class="enquiry-form enquiry-form--home" data-email-href="${esc(data.contact.emailHref)}" data-whatsapp-href="${esc(data.contact.whatsappHref)}" data-phone-label="${esc(data.contact.phone)}" novalidate>
+<div><label for="${formId}-company">Company / business name</label><input id="${formId}-company" name="company" autocomplete="organization" required aria-describedby="${formId}-e-co" /><p class="form-error" id="${formId}-e-co" data-error-for="company" hidden></p></div>
+<div class="row"><div><label for="${formId}-contact">Contact number</label><input id="${formId}-contact" name="contact" type="tel" autocomplete="tel" required aria-describedby="${formId}-e-ct" /><p class="form-error" id="${formId}-e-ct" data-error-for="contact" hidden></p></div>
+<div><label for="${formId}-req">Location</label><input id="${formId}-req" name="req" placeholder="City / state" autocomplete="address-level2" /></div></div>
+<div><label for="${formId}-interest">Business type</label><select id="${formId}-interest" name="interest"><option value="">Select business type</option>${businessOptions}</select></div>
+<div><label for="${formId}-msg">Message / requirements</label><textarea id="${formId}-msg" name="msg" rows="5" placeholder="Products, volumes, delivery timeline…"></textarea></div>
+<button class="btn red home-enquiry__submit" type="submit">${esc(he.submitLabel)}</button>
+<p class="status home-enquiry__status" id="${formId}-status" role="status" aria-live="polite">This opens your email app with the enquiry filled in; nothing is sent until you press send there.</p>
+</form>
+</div>
+</div></section>`;
 }
 
 function enquiryFormBlock(depth, formId = "enquiry-form") {
@@ -250,13 +318,83 @@ function proofLabel(item) {
   return esc(item.label);
 }
 
+function renderCatalogueTiles(depth = 0) {
+  return data.catalogueTiles
+    .map(
+      (tile) =>
+        `<a class="catalogue-tile" href="${esc(p(depth, `products/${tile.slug}/index.html`))}"><img src="${esc(assetSrc(depth, tile.image))}" alt="${esc(tile.label)}" width="400" height="560" loading="lazy" decoding="async" /></a>`,
+    )
+    .join("");
+}
+
 function proofStrip(depth = 0) {
   return `<div class="proof proof--icons anim-proof"><div class="wrap"><p class="proof-heading anim-proof-el">Why<br />Choose<br />Us ?</p>${data.heroProofPoints
     .map(
       (item) =>
-        `<div class="f f--icon anim-proof-el"><img class="proof-icon" src="${esc(p(depth, item.icon))}" alt="" width="36" height="36" decoding="async" /><span>${proofLabel(item)}</span></div>`,
+        `<div class="f f--icon anim-proof-el"><img class="proof-icon" src="${esc(assetSrc(depth, item.icon))}" alt="" width="36" height="36" decoding="async" /><span>${proofLabel(item)}</span></div>`,
     )
     .join("")}</div></div>`;
+}
+
+const HOME_ABOUT_MISSION_ICON = `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="17" cy="17" r="14"></circle><circle cx="17" cy="17" r="8"></circle><circle cx="17" cy="17" r="2" fill="currentColor"></circle><path d="M17 17L30 4"></path></svg>`;
+
+const HOME_ABOUT_VISION_ICON = `<svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 18C7 9 12 6 18 6s11 3 16 12c-5 9-10 12-16 12S7 27 2 18z"></path><circle cx="18" cy="18" r="5"></circle></svg>`;
+
+const HOME_ABOUT_SPEC_ICON = `<svg class="home-about__spec-deco" width="64" height="64" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="20" cy="20" r="13" stroke-width="6" stroke-dasharray="4.2 4.2"></circle><circle cx="20" cy="20" r="9"></circle><circle cx="20" cy="20" r="3.5"></circle></svg>`;
+
+function renderHomeAboutSection(depth) {
+  const ha = data.homeAbout;
+  const mapSrc = assetSrc(depth, "assets/map.png");
+  const specs = ha.specializations
+    .map(
+      (text, i) =>
+        `<div class="home-about__spec-item rv"><span class="home-about__spec-num">${String(i + 1).padStart(2, "0")}</span>${esc(text)}</div>`,
+    )
+    .join("");
+  const companyBold = "Athena Superpack Pvt Ltd";
+  const paras = ha.paragraphs
+    .map((text, i) => {
+      let inner = esc(text);
+      if (i === 0 && text.startsWith(companyBold)) {
+        inner = `<strong>${esc(companyBold)}</strong>${esc(text.slice(companyBold.length))}`;
+      }
+      return `<p class="home-about__lead${i === 0 ? " home-about__lead--first" : ""}">${inner}</p>`;
+    })
+    .join("");
+  const enquire = depth === 0 ? "#enquiry" : p(depth, "contact/index.html");
+  const products = p(depth, "products/index.html");
+  const catalogue = depth === 0 ? "#catalogue" : products;
+
+  return `<section id="about" class="home-about">
+<div class="home-about__intro"><div class="wrap home-about__intro-grid">
+<div class="home-about__copy rv">
+<p class="home-about__ey">About us</p>
+<h2 class="home-about__title"><span class="n">Packaging partners for</span> <span class="r">food businesses.</span></h2>
+${paras}
+<div class="cta home-about__cta"><a class="btn red" href="${esc(enquire)}">Enquire now</a><a class="btn ghost" href="${esc(catalogue)}">Explore products</a></div>
+</div>
+<figure class="home-about__map rv"><div class="home-about__map-media"><img src="${esc(mapSrc)}" alt="Map of India showing pan-India delivery and service presence" width="800" height="900" loading="lazy" decoding="async" /></div><span class="home-about__map-label">Presence Across India</span></figure>
+</div></div>
+<div class="home-about__mv"><div class="wrap home-about__mv-grid">
+<article class="home-about__card home-about__card--mission rv">
+<div class="home-about__card-icon home-about__card-icon--mission">${HOME_ABOUT_MISSION_ICON}</div>
+<h3>Our Mission</h3>
+<p>${esc(data.mission)}</p>
+</article>
+<article class="home-about__card home-about__card--vision rv">
+<div class="home-about__card-icon home-about__card-icon--vision">${HOME_ABOUT_VISION_ICON}</div>
+<h3>Our Vision</h3>
+<p>${esc(data.vision)}</p>
+</article>
+</div></div>
+<div class="home-about__spec-band"><div class="wrap">
+<div class="home-about__spec-head rv">
+<div><p class="home-about__ey home-about__ey--on-dark">Our specialization</p><h2 class="home-about__spec-title">What we do best.</h2></div>
+${HOME_ABOUT_SPEC_ICON}
+</div>
+<div class="home-about__spec-grid">${specs}</div>
+</div></div>
+</section>`;
 }
 
 function homePage() {
@@ -265,68 +403,25 @@ function homePage() {
     depth,
     "images/hero/eco-friendly-takeout-packaging-new.png",
   );
-  const chips = data.specialisations
-    .slice(0, 4)
-    .map((s) => `<li>${esc(s)}</li>`)
-    .join("");
   const body = `<div class="herow"><div class="wrap hero">
 <div class="hero-copy anim-hero anim-hero-copy">
 <h1><span class="n">Packaging for<br />food businesses</span><br /><span class="r">that scale.</span></h1>
 <p class="lead">Plastic and eco-friendly containers, meal trays,<br />and disposables,<br />for resellers and kitchens across India.</p>
-<div class="cta"><a class="btn red" href="#enquiry">Enquire now</a><a class="btn ghost" href="#products">Explore products</a></div>
+<div class="cta"><a class="btn red" href="#enquiry">Enquire now</a><a class="btn ghost" href="#catalogue">Explore products</a></div>
 </div>
 <figure class="hero-media anim-hero anim-hero-media"><img src="${esc(heroImg)}" alt="Zapac eco-friendly and takeaway packaging assortment" width="1204" height="850" /></figure>
 </div>
 ${proofStrip(depth)}</div>
-<section id="about"><div class="wrap split">
-<div class="rv"><h2>One supplier for the whole takeaway counter.</h2></div>
-<div class="rv">
-<div class="prose"><p>${esc(data.aboutIntro)}</p>
-<p class="muted">In-house manufacturing, pan-India delivery and customised packaging are part of our published catalogue positioning.</p></div>
-<ul class="plain chips">${chips}</ul>
-<p style="margin-top:1.25rem"><a class="link-arrow" href="${esc(p(depth, "about/index.html"))}">Read full company profile</a></p>
-</div>
-</div></section>
-<section id="products" style="padding-top:0"><div class="wrap">
-<div class="cat-head rv"><div><h2>The ${esc(data.company.productBrand)} catalogue</h2><p class="muted" style="margin-top:10px;max-width:52ch">Eleven product families. Open one to see its ranges, or search by name.</p></div>
-<div><label for="q" class="muted" style="font-weight:500">Search products</label><div class="search"><input id="q" type="search" placeholder="e.g. bagasse, lid, tray" autocomplete="off" /></div></div></div>
-<div id="fams">${renderCatalogueFamilies(depth)}</div>
-<p class="empty" id="none" hidden>No product family matches that search. Try a shorter word, or ask our team.</p>
-<div class="cta rv"><a class="btn" href="${esc(data.company.cataloguePdf)}" target="_blank" rel="noopener noreferrer">Open the full catalogue (PDF)</a><a class="btn ghost" href="#enquiry">Ask about a product</a></div>
-</div></section>
-<section class="eco" id="eco"><div class="wrap split">
-<div class="rv"><h2>Eco-friendly formats, alongside the core range.</h2>
-<p style="margin-top:18px;max-width:44ch">Cornstarch, bagasse and paper products sit in the same catalogue as our plastic lines, so a kitchen can order both from one supplier.</p>
-<p class="note">Material properties vary by product. Check the catalogue entry for the exact item before making any environmental claim to your own customers.</p>
-<a class="btn ghost" style="margin-top:1.5rem;border-color:rgb(255 255 255/.35);color:#fff" href="${esc(p(depth, "sustainability/index.html"))}">Explore eco-friendly range</a></div>
-<div class="mat rv">
-<div><h3>Cornstarch</h3><p>Round, rectangle and clamshell containers.</p><span class="tag">3 ranges</span></div>
-<div><h3>Bagasse</h3><p>Clamshells in brown and white, plus anti-leak round and rectangle containers, meal trays and lids.</p><span class="tag">Takeaway and beverage</span></div>
-<div><h3>Paper and kraft</h3><p>White and kraft food boxes, salad bowls and tubs with lids, and beverage lids.</p><span class="tag">Food and beverage</span></div>
-<div><h3>Corrugated</h3><p>Pizza boxes for delivery and takeaway.</p><span class="tag">Pizza box</span></div>
-</div>
-</div></section>
-<section><div class="wrap">
-<h2 class="rv" style="max-width:20ch">Why procurement teams work with Athena.</h2>
-<div class="why rv">
-<div><h3>Broad assortment</h3><p>Takeaway, meal trays, beverage disposables, wrapping, PET and hygiene, organised in one catalogue.</p></div>
-<div><h3>Reseller network</h3><p>500+ reseller clients across Maharashtra, supported by three warehouses.</p></div>
-<div><h3>HORECA and corporate supply</h3><p>Supply for hotels, restaurants, cloud kitchens and corporate food service across India.</p></div>
-<div><h3>Customised packaging</h3><p>Customised and premium HORECA packaging is part of our range. Talk to the team about formats and volumes.</p></div>
+<section id="catalogue" class="catalogue-section"><div class="wrap catalogue-head-wrap rv">
+<h2 class="catalogue-title"><span class="r">Our Catalogue</span></h2>
+</div><div class="wrap catalogue-body-wrap">
+<div class="catalogue-grid rv">${renderCatalogueTiles(depth)}</div>
+</div><div class="proof proof--catalogue-cta rv"><div class="wrap">
+<p class="catalogue-cta-strip__line">Can&rsquo;t spot what you need? Ask us for bulk or custom-printed packaging.</p>
+<a class="btn catalogue-cta-strip__btn" href="#enquiry">Request a quote</a>
 </div></div></section>
-<section class="mv"><div class="wrap split">
-<div class="rv"><h2>Mission</h2><p>${esc(data.mission)}</p></div>
-<div class="rv"><h2>Vision</h2><p>${esc(data.vision)}</p></div>
-</div></section>
-<section id="enquiry"><div class="wrap split">
-<div class="rv"><h2>Planning an order? Tell us what you need.</h2>
-<p class="muted" style="margin-top:16px;max-width:42ch">Share the products, rough monthly volume and delivery location. Our team will reply with next steps.</p>
-<div class="contact-list">
-<a href="${esc(data.contact.phoneHref)}"><small>Customer care</small>${esc(data.contact.phone)}</a>
-<a href="${esc(data.contact.emailHref)}"><small>Email</small>${esc(data.contact.email)}</a>
-<a href="${esc(data.contact.productSite)}" target="_blank" rel="noopener noreferrer"><small>Product website</small>zapac.in</a></div></div>
-<div class="rv">${enquiryFormBlock(depth, "home-enquiry")}</div>
-</div></section>`;
+${renderHomeAboutSection(depth)}
+${enquiryFormBlockHome("home-enquiry")}`;
 
   writePage(
     "index.html",

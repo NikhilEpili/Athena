@@ -74,7 +74,7 @@
       var action = form.getAttribute("action") || "index.html";
       var base = action.split("#")[0];
       window.location.href =
-        base + (val ? "?q=" + encodeURIComponent(val) : "") + "#products";
+        base + (val ? "?q=" + encodeURIComponent(val) : "");
     });
   }
 
@@ -258,16 +258,21 @@
       var ok = true;
       var first = null;
 
-      [["name", "Enter your name."], ["company", "Enter your company name."]].forEach(
-        function (pair) {
-          var key = pair[0];
-          var val = (data.get(key) || "").toString().trim();
-          if (!setFieldError(form, key, val ? "" : pair[1])) {
-            ok = false;
-            first = first || form.querySelector('[name="' + key + '"]');
-          }
-        },
-      );
+      var isHomeEnquiry = form.classList.contains("enquiry-form--home");
+      var requiredFields = isHomeEnquiry
+        ? [["company", "Enter your company name."]]
+        : [
+            ["name", "Enter your name."],
+            ["company", "Enter your company name."],
+          ];
+      requiredFields.forEach(function (pair) {
+        var key = pair[0];
+        var val = (data.get(key) || "").toString().trim();
+        if (!setFieldError(form, key, val ? "" : pair[1])) {
+          ok = false;
+          first = first || form.querySelector('[name="' + key + '"]');
+        }
+      });
 
       var contact = (data.get("contact") || "").toString().trim();
       var contactOk =
@@ -293,16 +298,19 @@
         return;
       }
 
+      var contactName = (data.get("name") || "").toString().trim();
       var body =
         "Name: " +
-        data.get("name") +
+        (contactName || (isHomeEnquiry ? "—" : "")) +
         "\nCompany: " +
         data.get("company") +
         "\nContact: " +
         data.get("contact") +
-        "\nProduct interest: " +
-        (data.get("interest") || "Not sure yet") +
-        "\nApproximate requirement: " +
+        "\n" +
+        (isHomeEnquiry ? "Business type: " : "Product interest: ") +
+        (data.get("interest") || (isHomeEnquiry ? "Not specified" : "Not sure yet")) +
+        "\n" +
+        (isHomeEnquiry ? "Location: " : "Approximate requirement: ") +
         (data.get("req") || "") +
         "\n\n" +
         (data.get("msg") || "");

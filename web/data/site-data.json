@@ -3,6 +3,13 @@
     "legalName": "Athena Superpack Pvt. Ltd.",
     "productBrand": "Zapac",
     "tagline": "Complete packaging solutions for every food business.",
+    "footerTagline": "Your trusted food packaging partner across India",
+    "footerBlurb": "Supplying plastic and eco-friendly packaging under the Zapac brand for resellers, hotels, restaurants, cafes, cloud kitchens and corporate food service.",
+    "footerCredit": {
+      "prefix": "Website designed by ",
+      "label": "MB Creatives",
+      "href": ""
+    },
     "cataloguePdf": "https://5.imimg.com/data5/SELLER/Doc/2026/9/640212680/NN/TB/LV/2782711/zapac-catalogue-brown-2-2-1-1-1-2-1-4.pdf"
   },
   "contact": {
@@ -13,9 +20,47 @@
     "productSite": "https://zapac.in",
     "whatsappHref": "https://wa.me/917208947187?text=Hello%20Athena%20Superpack%2C%20I%20would%20like%20to%20enquire%20about%20packaging%20products."
   },
+  "homeEnquiry": {
+    "eyebrow": "Contact us",
+    "title": "Meet your packaging supply partner",
+    "lead": "Looking for a reliable supplier for your hotel, restaurant, cafe, cloud kitchen, catering business or reseller network? Get in touch to discuss your product requirements and bulk packaging enquiries.",
+    "formTitle": "Request a supply enquiry",
+    "formLead": "Share your details and product requirements, and our team will get in touch with you.",
+    "submitLabel": "Submit enquiry",
+    "businessTypes": [
+      "Hotel",
+      "Restaurant",
+      "Cafe",
+      "Cloud kitchen",
+      "Caterer",
+      "Reseller",
+      "Corporate food service",
+      "Other"
+    ]
+  },
   "mission": "Our mission is to make India more sustainable by providing eco-friendly, safe and innovative packaging solutions. We aim to deliver quality, convenience and affordability while reducing environmental impact and supporting the growth of our partners in the food and hospitality industry.",
   "vision": "At Athena Superpack Pvt Ltd, our vision is to lead India toward a sustainable future with innovative, eco-friendly food packaging solutions that make everyday consumption greener and smarter.",
   "aboutIntro": "Athena Superpack Pvt Ltd is one of India's leading disposable food-packaging companies. Under our brand Zapac, we serve food businesses, resellers, corporate customers, hotels, restaurants, cloud kitchens, and other HORECA clients with reliable containers, trays, glasses, wrapping, and hygiene products designed for modern operations.",
+  "homeAbout": {
+    "paragraphs": [
+      "Athena Superpack Pvt Ltd is one of India's leading disposable food-packaging companies. Under our brand Zapac, we serve 500+ reseller clients across Maharashtra, with a strong presence in the corporate and HORECA segment across India.",
+      "We offer a wide range of high-quality, sustainable and reliable packaging solutions, including plastic and eco-friendly containers, plates, meal trays, glasses, tissues and many more products designed for modern food businesses."
+    ],
+    "stats": [
+      { "value": "500+", "label": "Reseller clients across Maharashtra" },
+      { "value": "3", "label": "Warehouses across Maharashtra" },
+      { "value": "Pan India", "label": "Delivery and service" },
+      { "value": "HORECA", "label": "Hotels, restaurants, cafes and corporate" }
+    ],
+    "specializations": [
+      "Complete range of plastic and eco-friendly food packaging",
+      "Customized and premium HORECA packaging",
+      "Strong reseller network across Maharashtra",
+      "Trusted supplier for corporate, hotels, restaurants and cloud kitchens",
+      "Consistent quality, timely delivery and pan-India service",
+      "Focus on sustainable and hygienic packaging solutions"
+    ]
+  },
   "presenceHeadline": "Presence spanning the length and breadth of India",
   "specialisations": [
     "Complete range of plastic and eco-friendly food packaging",
@@ -31,21 +76,73 @@
     { "value": "Pan-India", "label": "Corporate & HORECA supply", "tone": "phrase" },
     { "value": "Broad range", "label": "Plastic & eco-friendly", "tone": "phrase" }
   ],
+  "catalogueTiles": [
+    {
+      "slug": "plastic-takeaway-containers",
+      "image": "assets/Catalogue Tiles/Plastic Takeaway Containers.png",
+      "label": "Plastic Takeaway Containers"
+    },
+    {
+      "slug": "eco-friendly-takeaway-containers",
+      "image": "assets/Catalogue Tiles/Ecofriendly Takeaway Container.png",
+      "label": "Eco-Friendly Takeaway Containers"
+    },
+    {
+      "slug": "meal-trays",
+      "image": "assets/Catalogue Tiles/Takeaway Mealtray.png",
+      "label": "Takeaway Mealtray"
+    },
+    {
+      "slug": "beverage-products",
+      "image": "assets/Catalogue Tiles/Beverage Products.png",
+      "label": "Beverage Products"
+    },
+    {
+      "slug": "serving-bowls-plates-trays",
+      "image": "assets/Catalogue Tiles/Serving.png",
+      "label": "Serving Bowls, Plates & Trays"
+    },
+    {
+      "slug": "food-wrapping",
+      "image": "assets/Catalogue Tiles/Food Wrapping.png",
+      "label": "Food Wrapping"
+    },
+    {
+      "slug": "cutlery-straws-stirrers",
+      "image": "assets/Catalogue Tiles/Food Essentials.png",
+      "label": "Food Essentials"
+    },
+    {
+      "slug": "delivery-bags",
+      "image": "assets/Catalogue Tiles/Delivery Bags.png",
+      "label": "Delivery Bags"
+    },
+    {
+      "slug": "pet-products",
+      "image": "assets/Catalogue Tiles/PET Products.png",
+      "label": "PET Products"
+    },
+    {
+      "slug": "safety-hygiene",
+      "image": "assets/Catalogue Tiles/Safety & Hygiene.png",
+      "label": "Safety & Hygiene"
+    }
+  ],
   "heroProofPoints": [
-    { "label": ["Pan India", "Delivery"], "icon": "images/proof-icons/pan-india-delivery.png" },
-    { "label": "3 warehouses across Maharashtra", "icon": "images/proof-icons/warehouse.png" },
-    { "label": ["In-House", "Manufacturing"], "icon": "images/proof-icons/in-house.png" },
-    { "label": "Experienced and Dynamic Team", "icon": "images/proof-icons/team.png" },
-    { "label": ["Customized", "Packaging"], "icon": "images/proof-icons/customized.png" },
-    { "label": "Available for you personally", "icon": "images/proof-icons/available.png" }
+    { "label": ["Pan India", "Delivery"], "icon": "assets/Why Us/Pan India Delivery.png" },
+    { "label": "3 warehouses across Maharashtra", "icon": "assets/Why Us/warehouse.png" },
+    { "label": ["In-House", "Manufacturing"], "icon": "assets/Why Us/In House.png" },
+    { "label": "Experienced and Dynamic Team", "icon": "assets/Why Us/Team.png" },
+    { "label": ["Customized", "Packaging"], "icon": "assets/Why Us/Customized.png" },
+    { "label": "Available for you personally", "icon": "assets/Why Us/available.png" }
   ],
   "whyChooseUsPoints": [
-    { "label": "Pan India Delivery", "icon": "images/proof-icons/pan-india-delivery.png" },
-    { "label": "3 warehouses across Maharashtra for faster delivery", "icon": "images/proof-icons/warehouse.png" },
-    { "label": "In-House Manufacturing", "icon": "images/proof-icons/in-house.png" },
-    { "label": "Experienced and Dynamic Team", "icon": "images/proof-icons/team.png" },
-    { "label": "Customized Packaging", "icon": "images/proof-icons/customized.png" },
-    { "label": "Available for you personally", "icon": "images/proof-icons/available.png" }
+    { "label": "Pan India Delivery", "icon": "assets/Why Us/Pan India Delivery.png" },
+    { "label": "3 warehouses across Maharashtra for faster delivery", "icon": "assets/Why Us/warehouse.png" },
+    { "label": "In-House Manufacturing", "icon": "assets/Why Us/In House.png" },
+    { "label": "Experienced and Dynamic Team", "icon": "assets/Why Us/Team.png" },
+    { "label": "Customized Packaging", "icon": "assets/Why Us/Customized.png" },
+    { "label": "Available for you personally", "icon": "assets/Why Us/available.png" }
   ],
   "warehouses": [
     {
@@ -102,7 +199,7 @@
     },
     {
       "type": "group",
-      "label": "Beverage Product",
+      "label": "Beverage Products",
       "children": [
         { "slug": "beverage-products", "segment": "paper-beverage-product", "label": "Paper Beverage Product" },
         { "slug": "beverage-products", "segment": "ripple-beverage-product", "label": "Ripple Beverage Product" },
@@ -114,27 +211,45 @@
         { "slug": "beverage-products", "segment": "glass-bottles", "label": "Glass Bottles" }
       ]
     },
-    { "type": "link", "label": "Cutlery, Straw & Stirrer", "slug": "cutlery-straws-stirrers" },
+    {
+      "type": "group",
+      "label": "Cutlery, Straw & Stirrer",
+      "children": [
+        { "slug": "cutlery-straws-stirrers", "segment": "wooden-cutlery", "label": "Wooden Cutlery" },
+        { "slug": "cutlery-straws-stirrers", "segment": "cornstarch-cutlery", "label": "Cornstarch Cutlery" },
+        { "slug": "cutlery-straws-stirrers", "segment": "paper-straws", "label": "Paper Straws" },
+        { "slug": "cutlery-straws-stirrers", "segment": "compostable-straws", "label": "Compostable Straws" },
+        { "slug": "cutlery-straws-stirrers", "segment": "cutlery-set", "label": "Cutlery Set" }
+      ]
+    },
     {
       "type": "group",
       "label": "Wrapping & Delivery",
-      "children": [
-        { "slug": "food-wrapping", "label": "Food Wrapping" },
-        { "slug": "delivery-bags", "label": "Delivery Bags" }
+      "sections": [
+        { "slug": "food-wrapping", "heading": "Food Wrapping" },
+        { "slug": "delivery-bags", "heading": "Delivery Bags" }
       ]
     },
     {
       "type": "group",
       "label": "Serving Products",
-      "children": [{ "slug": "serving-bowls-plates-trays", "label": "Bowl, Plates & Trays" }]
+      "children": [
+        { "slug": "serving-bowls-plates-trays", "segment": "bagasse-bowls-white-brown", "label": "Bagasse - Bowls ( White & Brown )" },
+        { "slug": "serving-bowls-plates-trays", "segment": "bagasse-plates-brown", "label": "Bagasse - Plates ( Brown )" },
+        { "slug": "serving-bowls-plates-trays", "segment": "bagasse-plates-white", "label": "Bagasse - Plates ( White )" },
+        { "slug": "serving-bowls-plates-trays", "segment": "bagasse-trays", "label": "Bagasse Trays" },
+        { "slug": "serving-bowls-plates-trays", "segment": "cornstarch-bowl", "label": "Cornstarch Bowl" },
+        { "slug": "serving-bowls-plates-trays", "segment": "cornstarch-round-plates", "label": "Cornstarch Round Plates" },
+        { "slug": "serving-bowls-plates-trays", "segment": "cornstarch-square-plates", "label": "Cornstarch Square Plates" }
+      ]
     },
     {
       "type": "group",
       "label": "Hygiene & More",
-      "children": [
-        { "slug": "safety-hygiene", "label": "Safety & Hygiene" },
-        { "slug": "pet-products", "label": "Pet Product" },
-        { "slug": "other-products", "label": "Others" }
+      "sections": [
+        { "slug": "pet-products", "heading": "Pet Products" },
+        { "slug": "safety-hygiene", "heading": "Safety & Hygiene" },
+        { "slug": "other-products", "heading": "Others" }
       ]
     }
   ],
@@ -227,7 +342,12 @@
       "image": "images/products/hero-round-container.jpg",
       "imageAlt": "Food wrapping products from the Zapac catalogue",
       "cataloguePages": "18–19",
-      "layout": "strip"
+      "layout": "strip",
+      "subLines": [
+        { "id": "cling-films", "label": "Cling Films" },
+        { "id": "aluminium-foil", "label": "Aluminium Foil" },
+        { "id": "food-wrapping-paper", "label": "Food Wrapping Paper" }
+      ]
     },
     {
       "slug": "serving-bowls-plates-trays",
@@ -237,7 +357,16 @@
       "image": "images/products/meal-tray.png",
       "imageAlt": "Square biodegradable plate",
       "cataloguePages": "20–22",
-      "layout": "feature"
+      "layout": "feature",
+      "subLines": [
+        { "id": "bagasse-bowls-white-brown", "label": "Bagasse - Bowls ( White & Brown )" },
+        { "id": "bagasse-plates-brown", "label": "Bagasse - Plates ( Brown )" },
+        { "id": "bagasse-plates-white", "label": "Bagasse - Plates ( White )" },
+        { "id": "bagasse-trays", "label": "Bagasse Trays" },
+        { "id": "cornstarch-bowl", "label": "Cornstarch Bowl" },
+        { "id": "cornstarch-round-plates", "label": "Cornstarch Round Plates" },
+        { "id": "cornstarch-square-plates", "label": "Cornstarch Square Plates" }
+      ]
     },
     {
       "slug": "cutlery-straws-stirrers",
@@ -247,7 +376,14 @@
       "image": "images/products/meal-tray.png",
       "imageAlt": "Cutlery and service disposables from the Zapac catalogue",
       "cataloguePages": "23–25",
-      "layout": "index"
+      "layout": "index",
+      "subLines": [
+        { "id": "wooden-cutlery", "label": "Wooden Cutlery" },
+        { "id": "cornstarch-cutlery", "label": "Cornstarch Cutlery" },
+        { "id": "paper-straws", "label": "Paper Straws" },
+        { "id": "compostable-straws", "label": "Compostable Straws" },
+        { "id": "cutlery-set", "label": "Cutlery Set" }
+      ]
     },
     {
       "slug": "delivery-bags",
@@ -257,7 +393,12 @@
       "image": "images/products/hero-round-container.jpg",
       "imageAlt": "Delivery bags from the Zapac catalogue",
       "cataloguePages": "26–27",
-      "layout": "strip"
+      "layout": "strip",
+      "subLines": [
+        { "id": "sos-paper-bags", "label": "SOS Paper Bags" },
+        { "id": "paper-carry-bag-with-handle", "label": "Paper Carry Bag with Handle" },
+        { "id": "grease-proof-pouch-v-bottom", "label": "Grease Proof Pouch (V-Bottom)" }
+      ]
     },
     {
       "slug": "pet-products",
@@ -267,7 +408,17 @@
       "image": "images/products/hero-round-container.jpg",
       "imageAlt": "Rectangular PET hinged container",
       "cataloguePages": "28–31",
-      "layout": "feature"
+      "layout": "feature",
+      "subLines": [
+        { "id": "hinged-boxes", "label": "Hinged Boxes" },
+        { "id": "dry-fruit-hinged-boxes", "label": "Dry Fruit Hinged Boxes" },
+        { "id": "other-hinged-products", "label": "Other Hinged Products" },
+        { "id": "hinged-box-round-fl-dl-series", "label": "Hinged Box Round – FL & DL Series" },
+        { "id": "special-hinged-boxes", "label": "Special Hinged Boxes" },
+        { "id": "pet-containers", "label": "PET Containers" },
+        { "id": "square-pet-container", "label": "Square Pet Container" },
+        { "id": "punnets-fruit-packaging", "label": "Punnets & Fruit Packaging" }
+      ]
     },
     {
       "slug": "safety-hygiene",
@@ -277,7 +428,19 @@
       "image": "images/products/meal-tray.png",
       "imageAlt": "Hygiene and service products from the catalogue",
       "cataloguePages": "32–35",
-      "layout": "index"
+      "layout": "index",
+      "subLines": [
+        { "id": "chef-cap", "label": "Chef Cap" },
+        { "id": "napkins-white-brown", "label": "Napkins ( White & Brown )" },
+        { "id": "facials", "label": "Facials" },
+        { "id": "kitchen-essentials", "label": "Kitchen Essentials" },
+        { "id": "m-folds-toilet-roll-white-brown", "label": "M-Folds & Toilet Roll (White & Brown)" },
+        { "id": "garbage-bags-oxo-black-green", "label": "Garbage Bags – OXO (Black / Green)" },
+        { "id": "compostable-garbage-bags", "label": "Compostable Garbage Bags" },
+        { "id": "jumbo-garbage-bags-black-green", "label": "Jumbo Garbage Bags (Black / Green)" },
+        { "id": "hand-gloves", "label": "Hand Gloves" },
+        { "id": "housekeeping", "label": "Housekeeping" }
+      ]
     },
     {
       "slug": "other-products",
@@ -287,7 +450,14 @@
       "image": "images/products/hero-round-container.jpg",
       "imageAlt": "Corrugated pizza box",
       "cataloguePages": "36",
-      "layout": "strip"
+      "layout": "strip",
+      "subLines": [
+        { "id": "gel", "label": "Gel" },
+        { "id": "doilies-paper", "label": "Doilies Paper" },
+        { "id": "liquid-soap", "label": "Liquid Soap" },
+        { "id": "floor-cleaner", "label": "Floor Cleaner" },
+        { "id": "dish-cleaner", "label": "Dish Cleaner" }
+      ]
     }
   ]
 }
