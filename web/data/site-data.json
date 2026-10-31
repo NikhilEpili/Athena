@@ -166,11 +166,13 @@
     { "href": "contact/index.html", "label": "Contact" }
   ],
   "utilityNavLinks": [
-    { "href": "https://5.imimg.com/data5/SELLER/Doc/2026/9/640212680/NN/TB/LV/2782711/zapac-catalogue-brown-2-2-1-1-1-2-1-4.pdf", "label": "Catalog", "external": true },
-    { "href": "about/index.html", "label": "About us" },
+    { "href": "index.html", "label": "Home" },
+    { "href": "products/index.html", "label": "Products" },
+    { "href": "industries/index.html", "label": "Industries We Serve" },
     { "href": "sustainability/index.html", "label": "Sustainability" },
-    { "href": "contact/index.html", "label": "Custom packaging" },
-    { "href": "contact/index.html", "label": "Contact us" }
+    { "href": "about/index.html", "label": "About Athena" },
+    { "href": "contact/index.html", "label": "Contact Us" },
+    { "href": "contact/index.html", "label": "Request a Quote" }
   ],
   "ecoCategorySlugs": [
     "eco-friendly-takeaway-containers",

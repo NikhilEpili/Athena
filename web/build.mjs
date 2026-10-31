@@ -36,26 +36,41 @@ function navHref(depth, key) {
   switch (key) {
     case "home":
       return `${home}#top`;
-    case "about":
-      return p(depth, "about/index.html");
     case "products":
       return p(depth, "products/index.html");
+    case "industries":
+      return p(depth, "industries/index.html");
+    case "sustainability":
+      return p(depth, "sustainability/index.html");
+    case "about":
+      return p(depth, "about/index.html");
+    case "contact":
+      return p(depth, "contact/index.html");
+    case "quote":
+      return depth === 0 ? "#enquiry" : p(depth, "contact/index.html");
     case "eco":
       return p(depth, "sustainability/index.html");
-    case "contact":
-      return depth === 0 ? "#enquiry" : p(depth, "contact/index.html");
     default:
       return home;
   }
 }
 
-function utilityHref(depth, link) {
-  if (link.external) return link.href;
-  const path = link.href.replace(/^\//, "");
-  if (path === "about/index.html") return navHref(depth, "about");
-  if (path === "sustainability/index.html") return navHref(depth, "eco");
-  if (path === "contact/index.html") return navHref(depth, "contact");
-  return p(depth, path);
+function renderPrimaryNav(depth) {
+  const items = [
+    ["home", "Home"],
+    ["products", "Products"],
+    ["industries", "Industries We Serve"],
+    ["sustainability", "Sustainability"],
+    ["about", "About Athena"],
+    ["contact", "Contact Us"],
+    ["quote", "Request a Quote"],
+  ];
+  return items
+    .map(
+      ([key, label]) =>
+        `<a href="${esc(navHref(depth, key))}">${esc(label)}</a>`,
+    )
+    .join("");
 }
 
 function titleForSlug(slug) {
@@ -133,25 +148,12 @@ function markFooterLogo(depth) {
 }
 
 function athenaHeader(depth) {
-  const util = data.utilityNavLinks
-    .map((link) => {
-      const href = utilityHref(depth, link);
-      const ext = link.external ? ' target="_blank" rel="noopener noreferrer"' : "";
-      return `<a href="${esc(href)}"${ext}>${esc(link.label)}</a>`;
-    })
-    .join("");
-  const searchAction = p(depth, "products/index.html");
   return `<header id="site-header">
 <div class="header-brand"><div class="header-shell header-brand__inner">
 ${markTop(depth)}
 <button type="button" class="menu" data-menu-toggle aria-expanded="false">Menu</button>
 <div class="header-brand__end">
-<nav class="header-brand-nav" aria-label="Site">${util}</nav>
-<form class="hsearch" id="header-search" role="search" action="${esc(searchAction)}" method="get">
-<label class="sr" for="header-q">Search products</label>
-<div class="sb"><input id="header-q" name="q" type="search" placeholder="Search products" autocomplete="off" />
-<button type="submit" aria-label="Submit search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button></div>
-</form>
+<nav class="header-brand-nav" aria-label="Site">${renderPrimaryNav(depth)}</nav>
 </div>
 </div></div>
 <nav class="header-categories" id="site-cats" aria-label="Product categories"><div class="header-shell header-categories__inner" id="catw">${renderCategoryBar(depth)}</div></nav>
@@ -399,17 +401,12 @@ ${HOME_ABOUT_SPEC_ICON}
 
 function homePage() {
   const depth = 0;
-  const heroImg = p(
-    depth,
-    "images/hero/eco-friendly-takeout-packaging-new.png",
-  );
   const body = `<div class="herow"><div class="wrap hero">
 <div class="hero-copy anim-hero anim-hero-copy">
 <h1><span class="n">Packaging for<br />food businesses</span><br /><span class="r">that scale.</span></h1>
 <p class="lead">Plastic and eco-friendly containers, meal trays,<br />and disposables,<br />for resellers and kitchens across India.</p>
 <div class="cta"><a class="btn red" href="#enquiry">Enquire now</a><a class="btn ghost" href="#catalogue">Explore products</a></div>
 </div>
-<figure class="hero-media anim-hero anim-hero-media"><img src="${esc(heroImg)}" alt="Zapac eco-friendly and takeaway packaging assortment" width="1204" height="850" /></figure>
 </div>
 ${proofStrip(depth)}</div>
 <section id="catalogue" class="catalogue-section"><div class="wrap catalogue-head-wrap rv">
@@ -492,6 +489,31 @@ ${enquiryFormBlock(depth)}
       depth,
       title: "Contact",
       description: "Contact Athena Superpack for packaging enquiries.",
+      body,
+    }),
+  );
+}
+
+function industriesPage() {
+  const depth = 1;
+  const segments = [
+    "Hotels, restaurants, cafes, and cloud kitchens",
+    "Corporate food service and institutional catering",
+    "Resellers and distributors across India",
+    "HORECA, events, and high-volume catering",
+  ];
+  const list = segments.map((item) => `<li>${esc(item)}</li>`).join("");
+  const body = `<div class="page-pad-bottom">
+<section class="page-hero page-hero--panel"><div class="wrap"><h1>Industries We Serve</h1><p class="muted" style="margin-top:1rem;max-width:52ch">Reliable packaging supply for food businesses that need consistent quality, timely delivery, and range across plastic and eco-friendly formats.</p></div></section>
+<section><div class="wrap"><ul class="plain chips rv">${list}</ul><div class="cta rv" style="margin-top:1.5rem"><a class="btn red" href="${esc(p(depth, "contact/index.html"))}">Request a quote</a></div></div></section>
+</div>`;
+  writePage(
+    "industries/index.html",
+    pageShell({
+      depth,
+      title: "Industries We Serve",
+      description:
+        "Food packaging for hotels, restaurants, cloud kitchens, resellers, and HORECA.",
       body,
     }),
   );
@@ -625,6 +647,7 @@ copyFileSync(
 
 homePage();
 aboutPage();
+industriesPage();
 contactPage();
 sustainabilityPage();
 productsIndexPage();
